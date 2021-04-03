@@ -1,6 +1,3 @@
-export type { DocumentGenerator } from "./DocumentGenerator";
-export type { PlagirismCheckerBridge } from "./PlagirismCheckerBridge";
-export type {
-  StudentInformationSystemBridge,
-  SISBLoginResult,
-} from "./StudentInformationSystemBridge";
+export * from "./DocumentGenerator";
+export * from "./PlagirismCheckerBridge";
+export * from "./StudentInformationSystemBridge";
