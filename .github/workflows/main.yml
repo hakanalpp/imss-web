@@ -25,7 +25,6 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: build
         run: |
-          cd iztech-ceng316
           yarn build frontend --configuration production
       - uses: ./
         id: vercel-action-production
@@ -34,7 +33,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: iztech-ceng316/dist/apps/frontend
+          working-directory: dist/apps/frontend
           vercel-args: '--prod'
   # backend:
   #   name: "Deploy backend"
