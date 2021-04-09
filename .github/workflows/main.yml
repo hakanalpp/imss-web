@@ -8,9 +8,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
+    env:
+      DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      DIGITALOCEAN_APP_ID: ${{ secrets.DIGITALOCEAN_APP_ID }}
+      VERCEL_HOOK_DEPLOY: ${{ secrets.VERCEL_HOOK_DEPLOY }}
     steps:
       - name: Trigger API Deployment
         run: |
