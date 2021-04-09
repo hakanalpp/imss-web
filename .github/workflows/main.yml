@@ -1,10 +1,9 @@
 name: Deploy
 
 on:
-  page_build:
-    release:
-      types:
-        - created
+  release:
+    types:
+      - created
   workflow_dispatch:
 
 jobs:
@@ -36,20 +35,19 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: dist/apps/frontend
           vercel-args: '--prod'
-  # backend:
-  #   name: "Deploy backend"
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
-  #     DIGITALOCEAN_APP_ID: ${{ secrets.DIGITALOCEAN_APP_ID }}
-  #     VERCEL_HOOK_DEPLOY: ${{ secrets.VERCEL_HOOK_DEPLOY }}
-  #   steps:
-  #     - name: Trigger API Deployment
-  #       run: |
-  #         curl -X POST \
-  #         -H "Content-Type: application/json" \
-  #         -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-  #         "https://api.digitalocean.com/v2/apps/$DIGITALOCEAN_APP_ID/deployments"
+  backend:
+    name: "Deploy backend"
+    runs-on: ubuntu-latest
+    env:
+      DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+      DIGITALOCEAN_APP_ID: ${{ secrets.DIGITALOCEAN_APP_ID }}
+    steps:
+      - name: Trigger API Deployment
+        run: |
+          curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
+          "https://api.digitalocean.com/v2/apps/$DIGITALOCEAN_APP_ID/deployments"
 
-  #     - name: Trigger Frontend Deployment
-  #       run: curl -X POST $VERCEL_HOOK_DEPLOY
+      - name: Trigger Frontend Deployment
+        run: curl -X POST $VERCEL_HOOK_DEPLOY
