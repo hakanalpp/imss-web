@@ -48,6 +48,3 @@ jobs:
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
           "https://api.digitalocean.com/v2/apps/$DIGITALOCEAN_APP_ID/deployments"
-
-      - name: Trigger Frontend Deployment
-        run: curl -X POST $VERCEL_HOOK_DEPLOY
