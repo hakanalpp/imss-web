@@ -1,12 +1,12 @@
 import axios, { AxiosInstance } from "axios";
 import UserRole from "../types/UserRole";
 
-interface authData {
+interface AuthData {
     token: string;
-    user: userData;
+    user: UserData;
 }
 
-interface userData {
+interface UserData {
     id: number,
     username: string,
     role: UserRole,
@@ -43,7 +43,7 @@ class BaseController {
         this.token = `${type} ${token}`;
     };
 
-    login = async (username: string, password: string): Promise<authData> => {
+    login = async (username: string, password: string): Promise<AuthData> => {
         const { data } = await this.api.post("token", {
             username,
             password,
