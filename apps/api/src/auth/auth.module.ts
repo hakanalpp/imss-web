@@ -6,14 +6,13 @@ import { LocalStrategy, JwtStrategy } from "./strategies";
 import { RolesGuard, JwtAuthGuard } from "./guards";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
-import { environment } from "../environments/environment";
 import OBSBridge from "@imss/obs-bridge";
 
 @Module({
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: environment.jwtSecret,
+      secret: process.env.NX_JWT_SECRET,
       signOptions: { expiresIn: "60h" },
     }),
   ],
