@@ -1,24 +1,29 @@
 import { EntityRepository, GetRepository, Repository } from "@mikro-orm/core";
 import { InjectRepository } from "@mikro-orm/nestjs";
 import { Injectable } from "@nestjs/common";
-import { SubmitFormDto } from "./dto/SubmitFormDto";
-import { SubmitFormResultDto } from "./dto/SubmitFormResultDto";
+import { FormAnswerDetailDto, FormDetailDto } from "./dto/form-detail";
+import { SubmitFormRequestDto, SubmitFormResultDto } from "./dto/submit-form";
 import { Form } from "./model/Form";
 import { FormAnswerField } from "./model/FormAnswerField";
 
 @Injectable()
 export class FormService {
-  // constructor(
-  //   @InjectRepository(FormAnswerField)
-  //   private formRepository: EntityRepository<FormAnswerField>
-  // ) {}
-  create(): string {
-    return "create";
+  constructor(
+    @InjectRepository(FormAnswerField)
+    private formRepository: EntityRepository<FormAnswerField>
+  ) { }
+  getForm(id: number): Promise<FormDetailDto> {
+    return null;
   }
 
-  getAll(): string {
-    return `getAll()`;
+  getFormAnswer(id: number): Promise<FormAnswerDetailDto> {
+    return null;
   }
+
+  submitFormAnswer(submitForm: SubmitFormRequestDto): Promise<SubmitFormResultDto> {
+    return null;
+  }
+
 
   //   submit(form: SubmitFormDto): SubmitFormResultDto {
   //     let forms: FormAnswerField[] = form.fields;
@@ -28,7 +33,4 @@ export class FormService {
   //     return new SubmitFormDto();
   //   }
 
-  updateOne(id: string): string {
-    return `updateOne(${id})`;
-  }
 }

@@ -13,5 +13,4 @@ const config: Options = {
   password: process.env.NX_DB_PASSWORD,
   logger: logger.log.bind(logger),
 };
-
 export default config;
