@@ -6,7 +6,9 @@ import {
   Patch,
   Post,
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("theses")
 @Controller("theses")
 export class ThesisController {
   @Post()

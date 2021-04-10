@@ -1,6 +1,6 @@
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-
+import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
@@ -16,8 +16,19 @@ async function bootstrap() {
     })
   );
 
-  await app.listen(port, () => {
-    Logger.log("Listening at http://localhost:" + port + "/" + globalPrefix);
+  const config = new DocumentBuilder()
+    .setTitle("IMSS")
+    .setDescription("IZTECH Master's Students System API documentation")
+    .setVersion("1.0")
+    .addTag("auth", "User related endpoints")
+    .addTag("theses", "Thesis related endpoints")
+    .build();
+
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup("api", app, document);
+
+  await app.listen(port, async () => {
+    Logger.log(`Listening at ${await app.getUrl()}`);
   });
 }
 

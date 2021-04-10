@@ -1,5 +1,4 @@
 export type SISBRole = "STUDENT" | "ACADEMICIAN" | "INSTITUTE_MEMBER";
-
 export interface SISBUser {
   id: number;
   username: string;
