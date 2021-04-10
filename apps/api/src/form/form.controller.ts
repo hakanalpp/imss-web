@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, UseGuards } from "@nestjs/common";
+import { Controller, Get, Param, ParseIntPipe, Post, Req, UseGuards } from "@nestjs/common";
 import { ApiOperation, ApiTags, ApiResponse, ApiBody } from "@nestjs/swagger";
 import { FormAnswerDetailDto, FormDetailDto } from './dto/form-detail';
 import { SubmitFormRequestDto, SubmitFormResultDto } from "./dto/submit-form";
@@ -13,26 +13,26 @@ export class FormController {
   ) { }
 
 
-  @Get("form")
+  @Get("get-form:id")
   @ApiOperation({ summary: "Gets a form by given id", })
   @ApiResponse({
     status: 200,
     description: "Form information",
     type: FormDetailDto,
   })
-  async get(id: number): Promise<FormDetailDto> {
+  async get(@Param("id", ParseIntPipe) id: number): Promise<FormDetailDto> {
     return await this.formService.getForm(id);
     //return data;
   }
 
-  @Get("form-answer")
+  @Get("get-form-answer:id")
   @ApiOperation({ summary: "Gets a form's answer by given id", })
   @ApiResponse({
     status: 200,
     description: "Form answer information",
     type: FormAnswerDetailDto,
   })
-  async getAnswer(id: number): Promise<FormAnswerDetailDto> {
+  async getAnswer(@Param("id", ParseIntPipe) id: number): Promise<FormAnswerDetailDto> {
     return await this.formService.getFormAnswer(id);
     //return data;
   }

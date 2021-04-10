@@ -9,7 +9,7 @@ export class FormAnswerDetailDto implements IFormAnswerResponse {
   @ApiProperty()
   name: string;
   @ApiProperty()
-  receiverRole: SISBRole;
+  receiverRole: string;
   senderId: number;
   @ApiProperty()
   fields: FormAnswerField[];
@@ -21,7 +21,7 @@ export class FormDetailDto implements IFormResponse {
   @ApiProperty()
   name: string;
   @ApiProperty()
-  receiverRole: SISBRole;
+  receiverRole: string;
   @ApiProperty()
   senderId: number;
   @ApiProperty()

@@ -9,8 +9,8 @@ import { FormAnswerField } from "./model/FormAnswerField";
 @Injectable()
 export class FormService {
   constructor(
-    @InjectRepository(FormAnswerField)
-    private formRepository: EntityRepository<FormAnswerField>
+    /*  @InjectRepository(FormAnswerField)
+      private formRepository: EntityRepository<FormAnswerField>*/
   ) { }
   getForm(id: number): Promise<FormDetailDto> {
     return null;

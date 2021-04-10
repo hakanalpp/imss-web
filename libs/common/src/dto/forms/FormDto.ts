@@ -3,7 +3,7 @@ import { SISBRole } from "../../interfaces/StudentInformationSystemBridge";
 export interface IFormDetailResponse {
   id: number;
   name: string;
-  receiverRole: SISBRole;
+  receiverRole: string;
   senderId: number;
 }
 
