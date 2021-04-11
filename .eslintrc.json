@@ -5,7 +5,11 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "plugins": [
+        "eslint-plugin-prettier"
+      ],
       "rules": {
+        "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
