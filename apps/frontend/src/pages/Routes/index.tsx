@@ -12,18 +12,13 @@ const Routes = ({ role }): JSX.Element => {
       case "InstituteMember":
         return <InstituteMember />;
       case "Student":
-        return <Student />
+        return <Student />;
       default:
-        return <NotFound />
+        return <NotFound />;
     }
   };
 
-  return (
-    <>
-      {renderSwitch("Student")}
-    </>
-  );
-
-}
+  return <>{renderSwitch("Student")}</>;
+};
 
 export default Routes;

@@ -2,11 +2,9 @@
 import BaseController, { Constructor } from "./base";
 
 function UserControllerMixin<T extends Constructor<BaseController>>(
-  BaseClass: T,
+  BaseClass: T
 ) {
-  return class UserController extends BaseClass {
-
-  };
+  return class UserController extends BaseClass {};
 }
 
 export default UserControllerMixin;

@@ -2,11 +2,9 @@
 import BaseController, { Constructor } from "./base";
 
 function FormControllerMixin<T extends Constructor<BaseController>>(
-  BaseClass: T,
+  BaseClass: T
 ) {
-  return class FormController extends BaseClass {
-
-  };
+  return class FormController extends BaseClass {};
 }
 
 export default FormControllerMixin;

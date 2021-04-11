@@ -6,10 +6,7 @@ const mix = (mixins, baseClass) =>
   mixins.reduce((newClass, mixin) => mixin(newClass), baseClass);
 
 const PincidentAPI = mix(
-  [
-    UserControllerMixin,
-    FormControllerMixin
-  ],
+  [UserControllerMixin, FormControllerMixin],
   BaseController
 );
 

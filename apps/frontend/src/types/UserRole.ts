@@ -1,3 +1,3 @@
 export default class {
-    type: "STUDENT" | "ACADEMICIAN" | "INSTITUTE MEMBER";
+  type: "STUDENT" | "ACADEMICIAN" | "INSTITUTE MEMBER";
 }
