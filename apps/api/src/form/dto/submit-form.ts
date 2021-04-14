@@ -1,7 +1,7 @@
-import { ISubmitFormRequest, ISubmitFormResponse } from "@imss/common";
+import { ISubmitFormRequest } from "@imss/common";
 import { FormAnswerField } from "../model/FormAnswerField";
 import { ApiProperty } from "@nestjs/swagger";
-export class SubmitFormResultDto implements ISubmitFormResponse {
+export class SubmitFormResultDto {
   @ApiProperty()
   id: number;
   @ApiProperty()
