@@ -2,14 +2,14 @@ import { Entity, ManyToOne, OneToOne, Property } from "@mikro-orm/core";
 
 @Entity()
 export class FormAnswerField {
-    id: number;
+  id: number;
 
-    @ManyToOne()
-    formAnswerId: number;
+  @ManyToOne()
+  formAnswerId: number;
 
-    @OneToOne()
-    formFieldId: number;
+  @OneToOne()
+  formFieldId: number;
 
-    @Property()
-    value: string;
+  @Property()
+  value: string;
 }

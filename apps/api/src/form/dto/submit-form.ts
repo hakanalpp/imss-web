@@ -14,4 +14,3 @@ export class SubmitFormRequestDto implements ISubmitFormRequest {
   @ApiProperty()
   fields: FormAnswerField[];
 }
-

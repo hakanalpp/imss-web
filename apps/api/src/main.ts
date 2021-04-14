@@ -21,7 +21,9 @@ async function bootstrap() {
     .setDescription("IZTECH Master's Students System API documentation")
     .setVersion("1.0")
     .addTag("auth", "User related endpoints")
+    .addTag("forms", "Form related endpoints")
     .addTag("theses", "Thesis related endpoints")
+    .addTag("tss", "Thesis exam result related endpoints")
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

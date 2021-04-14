@@ -4,16 +4,16 @@ import { Form } from "./Form";
 
 @Entity()
 export class FormField {
-    @PrimaryKey()
-    id: number;
-    @Property()
-    name: string;
-    @Property()
-    type: string;
-    @Property()
-    receiverRole: SISBRole;
-    @Property()
-    stepNo: number;
-    @ManyToOne(() => Form)
-    formId: number;
+  @PrimaryKey()
+  id: number;
+  @Property()
+  name: string;
+  @Property()
+  type: string;
+  @Property()
+  receiverRole: SISBRole;
+  @Property()
+  stepNo: number;
+  @ManyToOne(() => Form)
+  formId: number;
 }

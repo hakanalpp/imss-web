@@ -1,5 +1,3 @@
-import { SISBRole } from "../../interfaces/StudentInformationSystemBridge";
-
 export interface IFormDetailResponse {
   id: number;
   name: string;
@@ -7,18 +5,17 @@ export interface IFormDetailResponse {
   senderId: number;
 }
 
-export interface ISubmitFormResponse {
-}
+export type ISubmitFormResponse = unknown;
 
 export interface IFormAnswerResponse extends IFormDetailResponse {
-  fields: Object[];
+  fields: unknown[];
 }
 
 export interface IFormResponse extends IFormDetailResponse {
-  fields: Object[];
+  fields: unknown[];
 }
 
 export interface ISubmitFormRequest {
   id: number;
-  fields: Object[];
+  fields: unknown[];
 }

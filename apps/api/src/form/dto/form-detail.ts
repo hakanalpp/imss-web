@@ -1,5 +1,5 @@
 import { FormAnswerField } from "../model/FormAnswerField";
-import { IFormAnswerResponse, IFormResponse, SISBRole } from "@imss/common";
+import { IFormAnswerResponse, IFormResponse } from "@imss/common";
 import { ApiProperty } from "@nestjs/swagger";
 import { FormField } from "../model/FormField";
 

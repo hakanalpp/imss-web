@@ -8,29 +8,29 @@ import {
 } from "@nestjs/common";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
 
-@ApiTags("theses")
-@Controller("theses")
-export class ThesisController {
+@Controller("tss")
+@ApiTags("tss")
+export class TssController {
   @Post()
-  @ApiOperation({ summary: "Create new thesis" })
+  @ApiOperation({ summary: "Add thesis defence exam result" })
   create(): string {
     return "create";
   }
 
   @Get()
-  @ApiOperation({ summary: "Get all thesis" })
+  @ApiOperation({ summary: "Get all thesis defence exam results" })
   getAll(): string {
     return `getAll()`;
   }
 
   @Get(":id")
-  @ApiOperation({ summary: "Get a thesis" })
+  @ApiOperation({ summary: "Get a thesis defence exam result" })
   getOne(@Param("id", ParseIntPipe) id: number): string {
     return `getOne(${id})`;
   }
 
   @Patch(":id")
-  @ApiOperation({ summary: "Update a thesis" })
+  @ApiOperation({ summary: "Update a thesis defence exam result" })
   updateOne(@Param("id") id: string): string {
     return `updateOne(${id})`;
   }
