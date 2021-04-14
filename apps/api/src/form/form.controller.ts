@@ -6,10 +6,11 @@ import {
   Patch,
   Post,
 } from "@nestjs/common";
-import { ApiOperation, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { FormService } from "./form.service";
 
 @ApiTags("forms")
+@ApiBearerAuth()
 @Controller("forms")
 export class FormController {
   constructor(private formService: FormService) {}

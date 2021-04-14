@@ -6,9 +6,10 @@ import {
   Patch,
   Post,
 } from "@nestjs/common";
-import { ApiOperation, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger";
 
 @ApiTags("theses")
+@ApiBearerAuth()
 @Controller("theses")
 export class ThesisController {
   @Post()

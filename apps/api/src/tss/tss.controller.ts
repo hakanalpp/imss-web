@@ -6,10 +6,11 @@ import {
   Patch,
   Post,
 } from "@nestjs/common";
-import { ApiOperation, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger";
 
-@Controller("tss")
 @ApiTags("tss")
+@ApiBearerAuth()
+@Controller("tss")
 export class TssController {
   @Post()
   @ApiOperation({ summary: "Add thesis defence exam result" })

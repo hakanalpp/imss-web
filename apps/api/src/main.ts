@@ -9,17 +9,22 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix(globalPrefix);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-    })
-  );
+  app
+    .setGlobalPrefix(globalPrefix)
+    .useGlobalPipes(
+      new ValidationPipe({
+        transform: true,
+      })
+    )
+    .enableCors({
+      origin: "*",
+    });
 
   const config = new DocumentBuilder()
     .setTitle("IMSS")
     .setDescription("IZTECH Master's Students System API documentation")
     .setVersion("1.0")
+    .addBearerAuth()
     .addTag("auth", "User related endpoints")
     .addTag("forms", "Form related endpoints")
     .addTag("theses", "Thesis related endpoints")

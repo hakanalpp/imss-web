@@ -1,5 +1,11 @@
 import { Controller, Get, Post, Req, UseGuards } from "@nestjs/common";
-import { ApiOperation, ApiTags, ApiResponse, ApiBody } from "@nestjs/swagger";
+import {
+  ApiOperation,
+  ApiTags,
+  ApiResponse,
+  ApiBody,
+  ApiBearerAuth,
+} from "@nestjs/swagger";
 import ObsBridgeService from "@imss/obs-bridge";
 import { ILoginResponse } from "@imss/common";
 import { AuthService } from "./auth.service";
@@ -9,6 +15,7 @@ import { Public } from "./decorators";
 import { GetProfileResponse, LoginRequest, LoginResponse } from "./dto";
 
 @ApiTags("auth")
+@ApiBearerAuth()
 @Controller("auth")
 export class AuthController {
   constructor(
