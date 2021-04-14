@@ -10,7 +10,7 @@ import Login from "../pages/Login";
 import Routes from "../pages/Routes";
 
 export function App() {
-  const loggedIn = true;
+  const loggedIn = false;
   return (
     <Router>
       {!loggedIn && <Redirect to="/login" />}

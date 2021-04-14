@@ -3,22 +3,26 @@ import InstituteMember from "./InstituteMember";
 import Student from "./Student";
 import Academician from "./Academician";
 import NotFound from "../NotFound";
+import Layout from "../../components/Layout";
+import { useSelector } from "react-redux";
 
-const Routes = ({ role }): JSX.Element => {
-  const renderSwitch = (param: string) => {
-    switch (param) {
-      case "Academician":
+const Routes = (): JSX.Element => {
+  const { role } = useSelector((state) => state.user);
+  console.log(role);
+  const renderSwitch = () => {
+    switch (role) {
+      case "ACADEMICIAN":
         return <Academician />;
-      case "InstituteMember":
+      case "INSTITUTEMEMBER":
         return <InstituteMember />;
-      case "Student":
+      case "STUDENT":
         return <Student />;
       default:
         return <NotFound />;
     }
   };
 
-  return <>{renderSwitch("Student")}</>;
+  return <Layout>{renderSwitch()}</Layout>;
 };
 
 export default Routes;
