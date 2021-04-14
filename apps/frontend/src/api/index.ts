@@ -5,14 +5,13 @@ import FormControllerMixin from "./form";
 const mix = (mixins, baseClass) =>
   mixins.reduce((newClass, mixin) => mixin(newClass), baseClass);
 
-const PincidentAPI = mix(
-  [UserControllerMixin, FormControllerMixin],
-  BaseController
-);
+const API = mix([UserControllerMixin, FormControllerMixin], BaseController);
 
-const api = new PincidentAPI({
-  baseURL: process.env.REACT_APP_API_URL,
-  clientId: process.env.REACT_APP_API_CLIENT_KEY,
+const api = new API({
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? process.env.NX_API_URL_PRODUCTION
+      : process.env.NX_API_URL_DEVELOPMENT,
   timeout: 20000,
 });
 

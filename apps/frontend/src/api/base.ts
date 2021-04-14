@@ -24,10 +24,10 @@ class BaseController {
 
   protected api: AxiosInstance;
 
-  constructor() {
+  constructor({ baseURL, timeout }) {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_API_URL,
-      timeout: 20000,
+      baseURL: baseURL,
+      timeout: timeout,
       headers: { "Content-Type": "application/json" },
     });
 
@@ -43,10 +43,11 @@ class BaseController {
   };
 
   login = async (username: string, password: string): Promise<AuthData> => {
-    const { data } = await this.api.post("token", {
+    const { data } = await this.api.post("/auth/login", {
       username,
       password,
     });
+    this.setToken(data.access_token);
 
     return {
       token: data.access_token,
