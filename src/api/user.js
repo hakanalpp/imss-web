@@ -1,6 +1,4 @@
-function UserControllerMixin(
-  BaseClass
-) {
+function UserControllerMixin(BaseClass) {
   return class UserController extends BaseClass {};
 }
 

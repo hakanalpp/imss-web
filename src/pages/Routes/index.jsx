@@ -1,10 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import InstituteMember from "./InstituteMember";
 import Student from "./Student";
 import Academician from "./Academician";
 import NotFound from "../NotFound";
 import Layout from "../../components/Layout";
-import { useSelector } from "react-redux";
 import UserRole from "../../types/UserRole";
 
 const Routes = () => {
@@ -18,7 +18,7 @@ const Routes = () => {
       case UserRole.Student:
         return <Student />;
       default:
-        return <Student />;
+        return <NotFound />;
     }
   };
 

@@ -4,7 +4,7 @@ const initialState = {
   username: "",
   role: "",
   name: "",
-  surname: "",
+  surname: ""
 };
 
 const user = (state = initialState, action) => {

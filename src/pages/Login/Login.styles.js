@@ -6,13 +6,13 @@ export default makeStyles(() => ({
     display: "flex",
     height: "100vh",
     justifyContent: "center",
-    paddingTop: "10rem",
+    paddingTop: "10rem"
   },
   cardContent: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column"
   },
   card: {
-    width: "20rem",
-  },
+    width: "20rem"
+  }
 }));

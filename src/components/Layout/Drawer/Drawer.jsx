@@ -16,13 +16,10 @@ export default function MenuDrawer({ children }) {
       <CssBaseline />
       <Drawer
         variant="permanent"
-        className={[
-          classes.drawer,
-          open && classes.drawerOpen,
-          !open && classes.drawerClose,
-        ].join(" ")}
-        classes={{ paper: open ? classes.drawerOpen : classes.drawerClose }}
-      >
+        className={[classes.drawer, open && classes.drawerOpen, !open && classes.drawerClose].join(
+          " "
+        )}
+        classes={{ paper: open ? classes.drawerOpen : classes.drawerClose }}>
         <Toolbar />
         <NavList open={open} setOpen={setOpen} />
       </Drawer>

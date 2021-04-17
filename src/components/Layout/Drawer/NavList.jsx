@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  useTheme,
-} from "@material-ui/core";
+import { List, ListItem, ListItemIcon, ListItemText, useTheme } from "@material-ui/core";
 import BusinessIcon from "@material-ui/icons/Business";
 import HomeIcon from "@material-ui/icons/Home";
 import PeopleIcon from "@material-ui/icons/People";
@@ -26,24 +20,15 @@ export const NavList = ({ open, setOpen }) => {
   return (
     <List className={classes.list}>
       {NavController().map((item, index) => (
-        <ListItem
-          key={index}
-          button
-          onClick={() => history.push(item.onClickPath)}
-        >
+        // eslint-disable-next-line react/no-array-index-key
+        <ListItem key={index} button onClick={() => history.push(item.onClickPath)}>
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.name} />
         </ListItem>
       ))}
-      <ListItem
-        className={classes.extendButton}
-        button
-        onClick={() => handleClick()}
-      >
+      <ListItem className={classes.extendButton} button onClick={() => handleClick()}>
         {open && <ListItemText primary="Show Less" />}
-        <ListItemIcon>
-          {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-        </ListItemIcon>
+        <ListItemIcon>{open ? <ChevronLeftIcon /> : <ChevronRightIcon />}</ListItemIcon>
       </ListItem>
     </List>
   );
@@ -60,7 +45,7 @@ const NavController = () => {
 const mainNav = [
   { name: "Home", onClickPath: "/", icon: <HomeIcon /> },
   { name: "Forms", onClickPath: "/forms", icon: <BusinessIcon /> },
-  { name: "Students", onClickPath: "/students", icon: <PeopleIcon /> },
+  { name: "Students", onClickPath: "/students", icon: <PeopleIcon /> }
 ];
 
 export default NavList;

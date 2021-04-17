@@ -43,8 +43,7 @@ export default function MenuAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
-              color="inherit"
-            >
+              color="inherit">
               <AccountCircle />
             </IconButton>
             <Menu
@@ -52,16 +51,15 @@ export default function MenuAppBar() {
               anchorEl={anchorEl}
               anchorOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "right"
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "right"
               }}
               open={open}
-              onClose={handleClose}
-            >
+              onClose={handleClose}>
               <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </div>

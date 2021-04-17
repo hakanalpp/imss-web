@@ -1,1 +1,1 @@
-export { default as user } from "./user.reducer";
+export { default } from "./user.reducer";

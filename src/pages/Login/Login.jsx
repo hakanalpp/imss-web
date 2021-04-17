@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import TextField from "@material-ui/core/TextField";
 
 import { Box, Button, CardActions, CardContent } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import useStyles from "./Login.styles";
 import api from "../../api";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
 import { loginSuccess } from "../../store/user/user.action";
 
 const Login = () => {
@@ -63,12 +63,7 @@ const Login = () => {
               />
             </CardContent>
             <CardActions>
-              <Button
-                variant="contained"
-                fullWidth
-                type="reset"
-                onClick={() => handleLogin()}
-              >
+              <Button variant="contained" fullWidth type="reset" onClick={() => handleLogin()}>
                 Login
               </Button>
             </CardActions>

@@ -1,6 +1,4 @@
-function FormControllerMixin(
-  BaseClass
-) {
+function FormControllerMixin(BaseClass) {
   return class FormController extends BaseClass {};
 }
 

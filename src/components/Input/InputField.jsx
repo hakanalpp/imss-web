@@ -5,8 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
   textField: {
     margin: 15,
-    width: 270,
-  },
+    width: 270
+  }
 }));
 
 export const LineInput = (props) => {
@@ -53,7 +53,7 @@ export const DatePicker = (props) => {
       className={classes.textField}
       onChange={(text) => onChange(text.target.value)}
       InputLabelProps={{
-        shrink: true,
+        shrink: true
       }}
     />
   );

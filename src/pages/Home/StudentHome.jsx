@@ -27,11 +27,11 @@ export default function StudentHome() {
 const useStyles = makeStyles(() => ({
   container: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   status: {
     display: "flex",
-    alignItems: "center",
+    alignItems: "center"
   },
   paper: {
     backgroundColor: "#dedede",
@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   paperBig: {
     backgroundColor: "#95cfa5",
@@ -51,6 +51,6 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-  },
+    alignItems: "center"
+  }
 }));
