@@ -25,7 +25,7 @@ jobs:
       - name: build
         run: |
           yarn install
-          yarn build frontend --configuration production
+          yarn build
       - uses: amondnet/vercel-action@v20
         id: vercel-action-production
         with:
@@ -35,16 +35,3 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: dist/apps/frontend
           vercel-args: '--prod'
-  backend:
-    name: "Deploy backend"
-    runs-on: ubuntu-latest
-    env:
-      DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
-      DIGITALOCEAN_APP_ID: ${{ secrets.DIGITALOCEAN_APP_ID }}
-    steps:
-      - name: Trigger API Deployment
-        run: |
-          curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
-          "https://api.digitalocean.com/v2/apps/$DIGITALOCEAN_APP_ID/deployments"
