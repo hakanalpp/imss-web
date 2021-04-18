@@ -1,5 +1,5 @@
 export default {
   Student: "STUDENT",
   Academician: "ACADEMICIAN",
-  InstituteMember: "INSTITUTEMEMBER"
+  InstituteMember: "INSTITUTE_MEMBER"
 };

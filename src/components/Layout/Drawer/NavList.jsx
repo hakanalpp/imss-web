@@ -1,12 +1,14 @@
 import React from "react";
 import { List, ListItem, ListItemIcon, ListItemText, useTheme } from "@material-ui/core";
 import BusinessIcon from "@material-ui/icons/Business";
+import DescriptionIcon from "@material-ui/icons/Description";
 import HomeIcon from "@material-ui/icons/Home";
 import PeopleIcon from "@material-ui/icons/People";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useHistory } from "react-router-dom";
 import useStyles from "./Drawer.styles";
+import store from "../../../store";
 
 export const NavList = ({ open, setOpen }) => {
   const theme = useTheme();
@@ -35,17 +37,29 @@ export const NavList = ({ open, setOpen }) => {
 };
 
 const NavController = () => {
-  const type = "lala";
-  switch (type) {
+  const { role } = store.getState().user;
+  switch (role) {
+    case "ACADEMICIAN":
+      return academicianNav;
+    case "INSTITUTE_MEMBER":
+      return instituteMemberNav;
     default:
-      return mainNav;
+      return studentNav;
   }
 };
 
-const mainNav = [
-  { name: "Home", onClickPath: "/", icon: <HomeIcon /> },
-  { name: "Forms", onClickPath: "/forms", icon: <BusinessIcon /> },
-  { name: "Students", onClickPath: "/students", icon: <PeopleIcon /> }
+const studentNav = [
+  { name: "Graduation Process", onClickPath: "/", icon: <HomeIcon /> },
+  { name: "Forms", onClickPath: "/forms", icon: <DescriptionIcon /> }
 ];
+
+const academicianNav = [
+  { name: "Home", onClickPath: "/", icon: <HomeIcon /> },
+  { name: "Students", onClickPath: "/students", icon: <PeopleIcon /> },
+  { name: "Proposals", onClickPath: "/proposals", icon: <DescriptionIcon /> },
+  { name: "TSSs", onClickPath: "/TSSs", icon: <DescriptionIcon /> }
+];
+
+const instituteMemberNav = [{ name: "Students", onClickPath: "/students", icon: <BusinessIcon /> }];
 
 export default NavList;

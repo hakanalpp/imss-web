@@ -1,5 +1,5 @@
-import React from "react";
-import { TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import { Checkbox, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
@@ -8,6 +8,27 @@ const useStyles = makeStyles(() => ({
     width: 270
   }
 }));
+
+export const CheckBox = (props) => {
+  const classes = useStyles();
+  const [checked, setChecked] = useState(false);
+  const { label, onChange, disabled = false } = props;
+
+  const onClick = () => {
+    setChecked(!checked);
+    onChange(checked);
+  };
+
+  return (
+    <Checkbox
+      name={label}
+      className={classes.textField}
+      disabled={disabled}
+      checked={checked}
+      onChange={() => onClick()}
+    />
+  );
+};
 
 export const LineInput = (props) => {
   const classes = useStyles();

@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import InstituteMember from "./InstituteMember";
 import Student from "./Student";
 import Academician from "./Academician";
-import NotFound from "../NotFound";
-import Layout from "../../components/Layout";
 import UserRole from "../../types/UserRole";
 
 const Routes = () => {
@@ -18,11 +17,11 @@ const Routes = () => {
       case UserRole.Student:
         return <Student />;
       default:
-        return <NotFound />;
+        return <Redirect to="/login" />;
     }
   };
 
-  return <Layout>{renderSwitch()}</Layout>;
+  return <>{renderSwitch()}</>;
 };
 
 export default Routes;
