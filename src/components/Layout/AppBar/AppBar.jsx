@@ -6,7 +6,6 @@ import Typography from "@material-ui/core/Typography";
 
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
-import { useHistory } from "react-router-dom";
 import useStyles from "./AppBar.styles";
 import { removeUser } from "../../../store/user/user.action";
 
@@ -26,8 +25,7 @@ export default function MenuAppBar() {
   const handleLogout = () => {
     setAnchorEl(null);
     removeUser();
-    window.location.href = "http://localhost:3000/login"; // GÖKBERKE SOR!!!
-    // history.push("/login");
+    window.location.href = "http://localhost:3000/login";
   };
 
   return (

@@ -1,25 +1,17 @@
-import { makeStyles, Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React from "react";
+import StatusBar from "../../components/StatusBar";
 
 export default function StudentHome() {
   const styles = useStyles();
 
   return (
     <div className={styles.container}>
-      <div className={styles.status}>
-        <Paper className={styles.paper}>
-          <div style={{ margin: "auto" }}>Advisor Proposed</div>
-          <span style={{ fontStyle: "italic" }}>Done</span>
-        </Paper>
-        <Paper className={styles.paperBig}>
-          <div style={{ margin: "auto" }}>Complete Program Plan Form</div>
-          <span style={{ fontStyle: "italic" }}>Current</span>
-        </Paper>
-        <Paper className={styles.paper}>
-          <div style={{ margin: "auto" }}>Propose Thesis Topic</div>
-          <span style={{ fontStyle: "italic" }}>Next</span>
-        </Paper>
-      </div>
+      <StatusBar
+        done="Status Proposed"
+        current="Complete Program Plan Form"
+        next="Propose Thesis Topic"
+      />
     </div>
   );
 }

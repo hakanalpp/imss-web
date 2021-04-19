@@ -4,7 +4,7 @@ import { CheckBox, LineInput } from "../../components/Input/InputField";
 
 const k = [
   { id: "1", label: "Kullanıcı adı", type: "TextInput" },
-  { id: "3", label: "Yarrak", type: "TextInput" },
+  { id: "3", label: "Test Input", type: "TextInput" },
   { id: "2", label: "CheckBox", type: "CheckBox" }
 ];
 
