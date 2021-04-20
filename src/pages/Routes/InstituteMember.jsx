@@ -1,9 +1,8 @@
 import React from "react";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Layout from "../../components/Layout";
-import Form from "../Form";
-import Home from "../Home";
+import Student, { StudentInfoAcademician } from "../Student";
 import NotFound from "../NotFound";
 
 function InstituteMember() {
@@ -11,9 +10,24 @@ function InstituteMember() {
     <Router>
       <Layout>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/forms" component={Form} />
-          <Route component={NotFound} />
+          <Route exact path="/">
+            <Redirect to="/students" />
+          </Route>
+          <Route exact path="/students">
+            <Layout>
+              <Student />
+            </Layout>
+          </Route>
+          <Route exact path="/students/:id">
+            <Layout>
+              <StudentInfoAcademician />
+            </Layout>
+          </Route>
+          <Route>
+            <Layout>
+              <NotFound />
+            </Layout>
+          </Route>
         </Switch>
       </Layout>
     </Router>

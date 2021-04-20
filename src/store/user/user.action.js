@@ -1,12 +1,13 @@
 import { LOGIN_SUCCESS, REMOVE_USER } from "./user.types";
 
-export const loginSuccess = (username, role, name, surname) => ({
+export const loginSuccess = (username, role, name, surname, token) => ({
   type: LOGIN_SUCCESS,
   payload: {
     username,
     role,
     name,
-    surname
+    surname,
+    token
   }
 });
 

@@ -1,11 +1,14 @@
 import { createStore } from "redux";
+import api from "../api";
 import rootReducer from "./reducers";
 
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem("state");
     if (!serializedState) return undefined;
-    return JSON.parse(serializedState);
+    const state = JSON.parse(serializedState);
+    api.setToken(state.user.token);
+    return state;
   } catch (err) {
     return undefined;
   }

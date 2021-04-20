@@ -1,26 +1,32 @@
 import { makeStyles } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../../api";
 import Table from "../../components/DataDisplay/Table";
-
-const arr = [
-  { id: 1, name: "test1" },
-  { id: 2, name: "test12" },
-  { id: 3, name: "test13" },
-  { id: 4, name: "test134" },
-  { id: 5, name: "test1143" },
-  { id: 31, name: "test1134" }
-];
 
 const keys = [
   { id: "id", label: "#" },
-  { id: "name", label: "Name" }
+  { id: "title", label: "Title" },
+  { id: "description", label: "Description" }
 ];
 
-export default function Proposal() {
+export default function AdvisorProposal() {
+  const [theses, setTheses] = useState([]);
   const styles = useStyles();
+
+  useEffect(() => {
+    api
+      .getProposals()
+      .then((response) => {
+        setTheses(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className={styles.container}>
-      <Table values={arr} keys={keys} hasInfo />
+      <Table values={theses} keys={keys} hasInfo />
     </div>
   );
 }

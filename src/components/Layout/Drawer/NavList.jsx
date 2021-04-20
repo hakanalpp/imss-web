@@ -50,6 +50,7 @@ const NavController = () => {
 
 const studentNav = [
   { name: "Graduation Process", onClickPath: "/", icon: <HomeIcon /> },
+  { name: "Proposal", onClickPath: "/proposals", icon: <DescriptionIcon /> },
   { name: "Forms", onClickPath: "/forms", icon: <DescriptionIcon /> }
 ];
 

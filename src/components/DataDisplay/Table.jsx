@@ -28,13 +28,13 @@ export default function StickyHeadTable(props) {
               {keys.map((column, index) => (
                 <TableCell key={index}>{column.label}</TableCell>
               ))}
-              {hasInfo && <TableCell>Actions</TableCell>}
+              {hasInfo && <TableCell align="right">Actions</TableCell>}
             </TableRow>
           </TableHead>
           <TableBody>
-            {values.map((row) => {
+            {values.map((row, index) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow hover role="checkbox" tabIndex={-1} key={index}>
                   {keys.map((column) => {
                     const value = row[column.id];
                     return (

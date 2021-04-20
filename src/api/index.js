@@ -1,10 +1,11 @@
 import BaseController from "./base";
 import UserControllerMixin from "./user";
 import FormControllerMixin from "./form";
+import ThesesControllerMixin from "./theses";
 
 const mix = (mixins, baseClass) => mixins.reduce((newClass, mixin) => mixin(newClass), baseClass);
 
-const API = mix([UserControllerMixin, FormControllerMixin], BaseController);
+const API = mix([UserControllerMixin, FormControllerMixin, ThesesControllerMixin], BaseController);
 
 const api = new API({
   baseURL:

@@ -25,6 +25,7 @@ export default function MenuAppBar() {
   const handleLogout = () => {
     setAnchorEl(null);
     removeUser();
+    localStorage.removeItem("state");
     window.location.href = "http://localhost:3000/login";
   };
 
