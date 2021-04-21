@@ -6,14 +6,14 @@
   },
   "builds": [
     {
-      "src": "./dist/app/frontend/**",
+      "src": "./**",
       "use": "@now/static"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/app/frontend/$1"
+      "dest": "build/app/frontend/$1"
     }
   ]
 }
