@@ -9,9 +9,5 @@
       "src": "./build/**",
       "use": "@now/static"
     }
-  ],
-  "routes": [
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": ".*", "dest": "/index.html" }
   ]
 }
