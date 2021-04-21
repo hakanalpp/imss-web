@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
@@ -26,12 +25,11 @@ export default function MenuAppBar() {
     setAnchorEl(null);
     removeUser();
     localStorage.removeItem("state");
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "/login";
   };
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title} noWrap>

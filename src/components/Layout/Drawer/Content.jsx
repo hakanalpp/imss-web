@@ -38,6 +38,7 @@ export default function Content({ children }) {
   const classes = useStyles(theme);
   const history = useHistory();
   const match = useRouteMatch();
+
   const hasBack = match.url.split("/").length - 1 > 1;
   const previousRoute = "/";
 

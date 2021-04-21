@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import { Toolbar, useTheme } from "@material-ui/core";
 import useStyles from "./Drawer.styles";
 import Content from "./Content";
@@ -13,7 +12,6 @@ export default function MenuDrawer({ children }) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <Drawer
         variant="permanent"
         className={[classes.drawer, open && classes.drawerOpen, !open && classes.drawerClose].join(
