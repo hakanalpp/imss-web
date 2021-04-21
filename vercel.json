@@ -3,15 +3,5 @@
   "public": false,
   "github": {
     "enabled": false
-  },
-  "builds": [
-    {
-      "src": "./build/**",
-      "use": "@now/static"
-    }
-  ],
-  "rewrites": [
-    { "source": "/(.)", "destination": "/index.html" },
-    { "source": "^/static/(.)", "destination": "/static/$1" },
-  ]
+  }
 }
