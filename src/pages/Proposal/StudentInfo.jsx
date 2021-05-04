@@ -7,6 +7,8 @@ import { LineInput, MultiLineInput } from "../../components/Input/InputField";
 export default function AdvisorInfo() {
   const [subject, setSubject] = useState("");
   const [explanation, setExplanation] = useState("");
+  const [err, setErr] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
   const styles = useStyles();
@@ -18,20 +20,23 @@ export default function AdvisorInfo() {
       .then(() => {
         history.push("/proposals"); // TODO Notification zırzopunu yap
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        setErrorMessage(error.response.data.message[0]);
+        setErr(true);
       });
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.root}>
-        <LineInput value={subject} onChange={setSubject} label="Subject" />
+        <LineInput value={subject} error={err} onChange={setSubject} label="Subject" />
         <MultiLineInput
           value={explanation}
           onChange={setExplanation}
           label="Explanation"
           rows={10}
+          error={err}
+          errorMessage={errorMessage}
         />
         <div className={styles.buttons}>
           <Button variant="contained" color="primary" onClick={() => handleClick()}>

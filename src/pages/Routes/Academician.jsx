@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Switch } from "react-router-dom";
+import { AddForm } from "../Form";
 import Home from "../Home";
 import NotFound from "../NotFound";
 import { AcademicianProposal, AcademicianInfo } from "../Proposal";
@@ -33,6 +34,9 @@ function Academician() {
       </RouteWithLayout>
       <RouteWithLayout exact path="/TSSs/:id">
         <TSSInfo />
+      </RouteWithLayout>
+      <RouteWithLayout exact path="/forms/:id/add">
+        <AddForm />
       </RouteWithLayout>
       <RouteWithLayout>
         <NotFound />

@@ -1,45 +1,93 @@
-import { makeStyles } from "@material-ui/core";
-import React, { useState } from "react";
-import { CheckBox, LineInput } from "../../components/Input/InputField";
+import { Button, makeStyles } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import api from "../../api";
+import { DatePicker, LineInput } from "../../components/Input/InputField";
 
-const k = [
-  { id: "1", label: "Kullanıcı adı", type: "TextInput" },
-  { id: "3", label: "Test Input", type: "TextInput" },
-  { id: "2", label: "CheckBox", type: "CheckBox" }
-];
+const dictionary = {
+  FORM_TD: "TD Form",
+  date: "Date",
+  name: "Name",
+  surname: "Surname",
+  title: "Title",
+  student_name: "Student Name",
+  student_number: "Student Number",
+  student_program: "Student Program",
+  department: "Department",
+  student_surname: "Student Surname"
+};
 
 export default function AddForm() {
+  const { id } = useParams();
+  const history = useHistory();
   const styles = useStyles();
-  // eslint-disable-next-line no-unused-vars
-  const [input, setInput] = useState({});
 
-  const onChange = (id, text) => {
+  const [name, setName] = useState("");
+  const [fields, setFields] = useState([]);
+  const [input, setInput] = useState([]);
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    setDisabled(!input.every((field) => field.value !== ""));
+  }, [input]);
+
+  useEffect(() => {
+    api.getForm(id).then((data) => {
+      setName(data.name.replace(/\w+/gi, (m) => dictionary[m] || m));
+      const fieldArr = data.fields.map((field) => ({
+        ...field,
+        name: field.name.replace(/\w+/gi, (m) => dictionary[m] || m)
+      }));
+      setFields(fieldArr);
+      const arr = [];
+      for (let i = 0; i < data.fields.length; i += 1)
+        arr.push({ id: data.fields[i].id, value: "" });
+      setInput(arr);
+    });
+  }, [id]);
+
+  const onChange = (ids, text) => {
     setInput((prevInput) => {
-      return { ...prevInput, [id]: text };
+      const obj = prevInput.find((s) => s.id === ids);
+      obj.value = text;
+      return [...prevInput];
     });
   };
+
+  const handleClick = () => {
+    api
+      .postForm(id, input)
+      .then((res) => {
+        if (res.statusText === "Created") {
+          history.push("/proposals");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className={styles.container}>
-      <h1>Form Title</h1>
+      <h1>{name}</h1>
       <div className={styles.formInputs}>
-        {k.map((item) => (
+        {fields.map((item) => (
           <div key={item.id}>
-            {item.type === "TextInput" && (
-              <LineInput
-                key={item.id}
-                label={item.label}
-                onChange={(text) => onChange(item.id, text)}
-              />
+            {item.type === 0 && (
+              <LineInput label={item.name} onChange={(text) => onChange(item.id, text)} />
             )}
-            {item.type === "CheckBox" && (
-              <CheckBox
-                key={item.id}
-                label={item.label}
-                onChange={(text) => onChange(item.id, text)}
-              />
+            {item.type === 3 && (
+              <DatePicker label={item.name} onChange={(text) => onChange(item.id, text)} />
             )}
           </div>
         ))}
+      </div>
+      <div className={styles.buttons}>
+        <Button
+          disabled={disabled}
+          variant="contained"
+          color="secondary"
+          onClick={() => handleClick()}>
+          Send
+        </Button>
       </div>
     </div>
   );
@@ -57,5 +105,10 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column"
+  },
+  buttons: {
+    display: "flex",
+    alignSelf: "flex-end",
+    paddingRight: 16
   }
 }));

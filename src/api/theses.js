@@ -18,7 +18,7 @@ function ThesesControllerMixin(BaseClass) {
 
     async evaluateThesis(status, advisor_id) {
       const { data } = await this.api.patch(`/theses/${advisor_id}/status`, {
-        status
+        accept: status
       });
       return data.message;
     }

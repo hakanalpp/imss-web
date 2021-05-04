@@ -1,13 +1,14 @@
 import { Button, makeStyles } from "@material-ui/core";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import api from "../../api";
 
 export default function Form() {
   const styles = useStyles();
   const history = useHistory();
   return (
     <div className={styles.container}>
-      <Button variant="contained" color="secondary" onClick={() => history.push("forms/add")}>
+      <Button variant="contained" color="secondary" onClick={() => history.push("forms/1/add")}>
         Add
       </Button>
     </div>

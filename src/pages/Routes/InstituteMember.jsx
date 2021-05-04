@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import Student, { StudentInfoAcademician } from "../Student";
 import NotFound from "../NotFound";
 import RouteWithLayout from "./RouteWithLayout";
+import TSS from "../TSS";
+import TSSInfo from "../TSS/TSSInfo";
 
 function InstituteMember() {
   return (
@@ -16,6 +18,12 @@ function InstituteMember() {
       </RouteWithLayout>
       <RouteWithLayout exact path="/students/:id">
         <StudentInfoAcademician />
+      </RouteWithLayout>
+      <RouteWithLayout exact path="/TSSs">
+        <TSS />
+      </RouteWithLayout>
+      <RouteWithLayout exact path="/TSSs/:id">
+        <TSSInfo />
       </RouteWithLayout>
       <RouteWithLayout>
         <NotFound />

@@ -32,12 +32,13 @@ export const CheckBox = (props) => {
 
 export const LineInput = (props) => {
   const classes = useStyles();
-  const { label, value, onChange, disabled = false } = props;
+  const { label, value, onChange, disabled = false, error = false } = props;
   return (
     <TextField
       label={label}
       className={classes.textField}
       disabled={disabled}
+      error={error}
       value={value}
       onChange={(text) => onChange(text.target.value)}
     />
@@ -46,7 +47,7 @@ export const LineInput = (props) => {
 
 export const MultiLineInput = (props) => {
   const classes = useStyles();
-  const { label, value, onChange, rows = 4 } = props;
+  const { label, value, onChange, rows = 4, error = false, errorMessage = "" } = props;
 
   return (
     <TextField
@@ -55,6 +56,8 @@ export const MultiLineInput = (props) => {
       value={value}
       rows={rows}
       multiline
+      error={error}
+      helperText={error ? errorMessage : ""}
       variant="outlined"
       onChange={(text) => onChange(text.target.value)}
     />

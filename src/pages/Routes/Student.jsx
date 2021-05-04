@@ -10,7 +10,7 @@ import RouteWithLayout from "./RouteWithLayout";
 function Student() {
   return (
     <Switch>
-      <RouteWithLayout exact path="/forms/add">
+      <RouteWithLayout exact path="/forms/:id/add">
         <AddForm />
       </RouteWithLayout>
       <RouteWithLayout exact path="/forms">

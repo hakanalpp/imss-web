@@ -11,8 +11,8 @@ import api from "../../api";
 import { loginSuccess } from "../../store/user/user.action";
 
 const Login = () => {
-  const [Email, setEmail] = useState("hakanalp@std.iyte.edu.tr");
-  const [Password, setPassword] = useState("123456");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
   const [err, setErr] = useState(false);
 
   const styles = useStyles();
@@ -23,8 +23,8 @@ const Login = () => {
     api
       .login(Email, Password)
       .then((response) => {
-        const { username, role, name, surname } = response.user;
-        dispatch(loginSuccess(username, role, name, surname, response.token));
+        const { username, role, name, surname, id } = response.user;
+        dispatch(loginSuccess(username, role, name, surname, response.token, id));
         history.push("/");
       })
       .catch(() => {

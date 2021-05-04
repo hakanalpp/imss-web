@@ -61,6 +61,9 @@ const academicianNav = [
   { name: "TSSs", onClickPath: "/TSSs", icon: <DescriptionIcon /> }
 ];
 
-const instituteMemberNav = [{ name: "Students", onClickPath: "/students", icon: <BusinessIcon /> }];
+const instituteMemberNav = [
+  { name: "Students", onClickPath: "/students", icon: <BusinessIcon /> },
+  { name: "TSSs", onClickPath: "/TSSs", icon: <DescriptionIcon /> }
+];
 
 export default NavList;

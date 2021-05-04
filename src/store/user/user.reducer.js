@@ -5,7 +5,8 @@ const initialState = {
   role: "",
   name: "",
   surname: "",
-  token: ""
+  token: "",
+  id: 0
 };
 
 const user = (state = initialState, action) => {

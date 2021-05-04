@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import api from "../../api";
 import { ReadOnlyText } from "../../components/DataDisplay/ReadOnlyText";
+import { proposalSuccess } from "../../store/proposal/proposal.action";
 
 export default function ProposalInfo() {
   const [thesis, setThesis] = useState({});
@@ -26,7 +27,12 @@ export default function ProposalInfo() {
     api
       .evaluateThesis(status, id)
       .then(() => {
-        history.push("/proposals");
+        if (status) {
+          history.push("/forms/2/add");
+        } else {
+          proposalSuccess();
+          history.push("/proposals");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -43,11 +49,11 @@ export default function ProposalInfo() {
           <Button
             style={{ marginRight: 10 }}
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={() => handleClick(true)}>
             Accept
           </Button>
-          <Button variant="contained" color="secondary" onClick={() => handleClick(false)}>
+          <Button variant="contained" color="primary" onClick={() => handleClick(false)}>
             Decline
           </Button>
         </div>
