@@ -4,24 +4,21 @@ import api from "../../api";
 import Table from "../../components/DataDisplay/Table";
 
 const keys = [
-  { id: "id", label: "#" },
-  { id: "date", label: "Date" },
-  { id: "place", label: "Place" }
+  { id: "name", label: "Name" },
+  { id: "department", label: "Department" },
+  { id: "semester", label: "Semester" },
+  { id: "reason", label: "Reason" }
 ];
 
-const beautifyDate = (date) => {
-  return `${date.split("T")[0]} ${date.split("T")[1].substring(0, 5)}`;
-};
-
-export default function TSS() {
+export default function StudentInstituteMember() {
   const styles = useStyles();
-  const [TSSs, setTSSs] = useState([]);
+  const [students, setStudents] = useState([]);
 
   useEffect(() => {
     api
-      .getTSSs()
+      .getFailedStudents()
       .then((response) => {
-        setTSSs(response.tsss.map((tss) => ({ ...tss, date: beautifyDate(tss.date) })));
+        setStudents(response.failedStudents);
       })
       .catch((err) => {
         console.log(err);
@@ -30,7 +27,7 @@ export default function TSS() {
 
   return (
     <div className={styles.container}>
-      <Table values={TSSs} keys={keys} />
+      <Table values={students} keys={keys} />
     </div>
   );
 }

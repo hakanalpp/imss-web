@@ -48,7 +48,11 @@ export default function StickyHeadTable(props) {
                       <IconButton
                         edge="end"
                         aria-label="delete"
-                        onClick={() => history.push(`${match.url}/${row.id}`)}>
+                        onClick={() => {
+                          if ("status" in row && row.status === "FINISHED")
+                            history.push("/forms/2/add", row);
+                          else history.push(`${match.url}/${row.id}`);
+                        }}>
                         <InfoIcon />
                       </IconButton>
                     </TableCell>

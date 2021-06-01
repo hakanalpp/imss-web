@@ -1,7 +1,8 @@
-import { LOGIN_SUCCESS, REMOVE_USER } from "./user.types";
+import { LOGIN_SUCCESS, REMOVE_USER, STATUS_CHANGED } from "./user.types";
 
 const initialState = {
   username: "",
+  status: {},
   role: "",
   name: "",
   surname: "",
@@ -16,6 +17,9 @@ const user = (state = initialState, action) => {
     }
     case REMOVE_USER: {
       return {};
+    }
+    case STATUS_CHANGED: {
+      return { ...state, status: action.payload };
     }
     default:
       return state;

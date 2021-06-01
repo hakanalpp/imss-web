@@ -26,7 +26,12 @@ const saveState = (state) => {
 
 const persistedStore = loadState();
 
-const store = createStore(rootReducer, persistedStore);
+const store = createStore(
+  rootReducer,
+  persistedStore,
+  // eslint-disable-next-line no-underscore-dangle
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.subscribe(() => {
   saveState(store.getState());

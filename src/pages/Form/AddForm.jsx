@@ -1,11 +1,12 @@
 import { Button, makeStyles } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import api from "../../api";
 import { DatePicker, LineInput } from "../../components/Input/InputField";
 
 const dictionary = {
   FORM_TD: "TD Form",
+  FORM_TJA: "TJA Form",
   date: "Date",
   name: "Name",
   surname: "Surname",
@@ -21,13 +22,15 @@ export default function AddForm() {
   const { id } = useParams();
   const history = useHistory();
   const styles = useStyles();
-
+  const { state } = useLocation();
+  console.log(state);
   const [name, setName] = useState("");
   const [fields, setFields] = useState([]);
   const [input, setInput] = useState([]);
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
+    console.log(input);
     setDisabled(!input.every((field) => field.value !== ""));
   }, [input]);
 
@@ -40,11 +43,16 @@ export default function AddForm() {
       }));
       setFields(fieldArr);
       const arr = [];
-      for (let i = 0; i < data.fields.length; i += 1)
-        arr.push({ id: data.fields[i].id, value: "" });
+      for (let i = 0; i < data.fields.length; i += 1) {
+        if (data.fields[i].type === 9999 && state) {
+          arr.push({ id: Number(id) + 16, value: state.student_id });
+        } else {
+          arr.push({ id: data.fields[i].id, value: "" });
+        }
+      }
       setInput(arr);
     });
-  }, [id]);
+  }, [id, state]);
 
   const onChange = (ids, text) => {
     setInput((prevInput) => {

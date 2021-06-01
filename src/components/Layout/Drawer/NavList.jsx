@@ -50,20 +50,15 @@ const NavController = () => {
 
 const studentNav = [
   { name: "Graduation Process", onClickPath: "/", icon: <HomeIcon /> },
-  { name: "Proposal", onClickPath: "/proposals", icon: <DescriptionIcon /> },
-  { name: "Forms", onClickPath: "/forms", icon: <DescriptionIcon /> }
+  { name: "Proposal", onClickPath: "/proposals", icon: <DescriptionIcon /> }
 ];
 
 const academicianNav = [
   { name: "Home", onClickPath: "/", icon: <HomeIcon /> },
-  { name: "Students", onClickPath: "/students", icon: <PeopleIcon /> },
   { name: "Proposals", onClickPath: "/proposals", icon: <DescriptionIcon /> },
   { name: "TSSs", onClickPath: "/TSSs", icon: <DescriptionIcon /> }
 ];
 
-const instituteMemberNav = [
-  { name: "Students", onClickPath: "/students", icon: <BusinessIcon /> },
-  { name: "TSSs", onClickPath: "/TSSs", icon: <DescriptionIcon /> }
-];
+const instituteMemberNav = [{ name: "Students", onClickPath: "/students", icon: <BusinessIcon /> }];
 
 export default NavList;

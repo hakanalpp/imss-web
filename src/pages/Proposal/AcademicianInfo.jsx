@@ -28,7 +28,7 @@ export default function ProposalInfo() {
       .evaluateThesis(status, id)
       .then(() => {
         if (status) {
-          history.push("/forms/2/add");
+          history.push("/forms/1/add", thesis);
         } else {
           proposalSuccess();
           history.push("/proposals");

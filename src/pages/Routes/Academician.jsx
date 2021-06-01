@@ -17,12 +17,6 @@ function Academician() {
       <RouteWithLayout exact path="/">
         <Home />
       </RouteWithLayout>
-      <RouteWithLayout exact path="/students">
-        <Student />
-      </RouteWithLayout>
-      <RouteWithLayout exact path="/students/:id">
-        <StudentInfo />
-      </RouteWithLayout>
       <RouteWithLayout exact path="/proposals">
         <AcademicianProposal />
       </RouteWithLayout>
@@ -31,9 +25,6 @@ function Academician() {
       </RouteWithLayout>
       <RouteWithLayout exact path="/TSSs">
         <TSS />
-      </RouteWithLayout>
-      <RouteWithLayout exact path="/TSSs/:id">
-        <TSSInfo />
       </RouteWithLayout>
       <RouteWithLayout exact path="/forms/:id/add">
         <AddForm />

@@ -6,6 +6,11 @@ function ThesesControllerMixin(BaseClass) {
       return data.message;
     }
 
+    async getTSSs() {
+      const { data } = await this.api.get("/tss");
+      return data;
+    }
+
     async getProposals() {
       const { data } = await this.api.get("/theses");
       return data.theses;

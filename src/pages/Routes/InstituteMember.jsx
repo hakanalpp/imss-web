@@ -1,11 +1,9 @@
 import React from "react";
 
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
-import Student, { StudentInfoAcademician } from "../Student";
+import { Redirect, Switch } from "react-router-dom";
+import StudentInstituteMember from "../Student/StudentInstituteMember";
 import NotFound from "../NotFound";
 import RouteWithLayout from "./RouteWithLayout";
-import TSS from "../TSS";
-import TSSInfo from "../TSS/TSSInfo";
 
 function InstituteMember() {
   return (
@@ -14,16 +12,7 @@ function InstituteMember() {
         <Redirect to="/students" />
       </RouteWithLayout>
       <RouteWithLayout exact path="/students">
-        <Student />
-      </RouteWithLayout>
-      <RouteWithLayout exact path="/students/:id">
-        <StudentInfoAcademician />
-      </RouteWithLayout>
-      <RouteWithLayout exact path="/TSSs">
-        <TSS />
-      </RouteWithLayout>
-      <RouteWithLayout exact path="/TSSs/:id">
-        <TSSInfo />
+        <StudentInstituteMember />
       </RouteWithLayout>
       <RouteWithLayout>
         <NotFound />
