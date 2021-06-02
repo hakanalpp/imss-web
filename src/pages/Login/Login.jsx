@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -30,6 +31,13 @@ const Login = () => {
       .catch(() => {
         setErr(true);
       });
+  };
+
+  const handleReset = () => {
+    const key = window.prompt("Please enter a password to reset DB?");
+    api.resetDB(key).then((result) => {
+      window.alert(result.message);
+    });
   };
 
   return (
@@ -70,6 +78,13 @@ const Login = () => {
           </form>
         </Card>
       </Grid>
+      <Button
+        variant="contained"
+        color="primary"
+        className={styles.resetDB}
+        onClick={() => handleReset()}>
+        RESET THE DATABASE
+      </Button>
     </Grid>
   );
 };

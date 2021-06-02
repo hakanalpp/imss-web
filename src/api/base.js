@@ -19,6 +19,12 @@ class BaseController {
     this.token = `${type} ${token}`;
   }
 
+  async resetDB(key) {
+    const { data } = await this.api.get(`/test/reset-database?key=${key}`);
+
+    return data;
+  }
+
   async login(username, password) {
     const { data } = await this.api.post("/auth/login", {
       username,

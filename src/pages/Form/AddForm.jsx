@@ -15,7 +15,8 @@ const dictionary = {
   student_number: "Student Number",
   student_program: "Student Program",
   department: "Department",
-  student_surname: "Student Surname"
+  student_surname: "Student Surname",
+  program_name: "Program Name"
 };
 
 export default function AddForm() {

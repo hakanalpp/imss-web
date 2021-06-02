@@ -14,5 +14,10 @@ export default makeStyles(() => ({
   },
   card: {
     width: "20rem"
+  },
+  resetDB: {
+    position: "fixed",
+    bottom: 10,
+    right: 10
   }
 }));
